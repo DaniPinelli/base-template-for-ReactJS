@@ -3,11 +3,10 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ReactJS</title>
   <!-- Hoja de estilos-->
   <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+
 </head>
 
 <body>
@@ -48,6 +47,67 @@
     <a class="btn-white" href="#">Ir al blog</a>
   </div>
 
+  <div class="center">
+    <section id="content">
+      <h2 class="subheader">Últimos artículos</h2>
+      <script type="text/javascript">
+        window.addEventListener("load", () => {
+          let template = document.getElementById("article-template");
+
+          let articles = document.getElementById("articles");
+          for (let i = 1; i < 5; i++) {
+            let clonado = template.cloneNode(true);
+            clonado.removeAttribute("id");
+            let h2 = clonado.getElementsByTagName("h2")[0];
+            h2.innerHTML = h2.textContent + ' ' + (i + 1);
+            articles.appendChild(clonado);
+          }
+        });
+      </script>
+      <!-- Lista de artículos-->
+      <div id="articles">
+        <article class="article-item" id="article-template">
+          <div class="image-wrap">
+            <img src="https://img.autocosmos.com/noticias/fotosprinc/NAZ_e72625a5eee544be891d0f71db88c6c2.jpg"
+              alt="automovil">
+          </div>
+          <h2>Artículo de prueba</h2>
+          <span class="date">
+            Hace 5 minutos
+          </span>
+          <a href="#">Leer más</a>
+          <div class="clearfix"></div>
+        </article>
+        <!--Agregar artículos via JS-->
+      </div>
+
+
+    </section>
+
+
+    <aside id="sidebar">
+      <div id="nav-blog" class="sidebar-item">
+        <h3>Acciones</h3>
+        <a href="#" class="btn btn-success">Crear artículo</a>
+      </div>
+      <div id="search" class="sidebar-item">
+        <h3>Buscador</h3>
+        <p>Encuentra el artículo</p>
+        <form>
+          <input type="text" name="search" />
+          <input type="submit" name="submit" value="Buscar" class="btn" />
+        </form>
+      </div>
+    </aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer">
+    <div class="center">
+      <p>
+        &copy; Pagina de muestra en ReactJS de Daniel Pinelli.
+      </p>
+    </div>
+  </footer>
 </body>
 
 </html>
